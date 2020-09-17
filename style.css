@@ -43,6 +43,16 @@ html{
   align-items: center;
 }
 
+.main-player{
+  display: flex;
+  flex-direction: row;
+  
+}
+img{
+  
+  width: 80px;
+  height: 80px;
+}
 .score h1{
   font-weight: 200;
   font-size: 1.6rem;
@@ -125,3 +135,36 @@ justify-content: center;
   background-color: #BBB;
   color:#000;
 }
+
+/*Área dos logs*/
+
+.logs ul{
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.logs ul li{
+  display: flex;
+  justify-content: center;
+  margin: 2px 0px;
+ 
+  font-weight: 200;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+.player{
+  background-color: #4253af;
+  color:#fff;
+}
+
+.monster{
+  background-color: rgb(230, 47, 47);
+  color:#fff;
+
+}
+

@@ -13,7 +13,11 @@
     <span class="title-main">O matador de monstros...</span>
     <div class="panel scores">
       <div class="score">
-        <h1>Jogador</h1>
+        <div class="main-player">
+          <h1>Jogador</h1>
+          <img src="./img/jogador.png" alt="">
+        </div>
+        
         <div class="life-bar">
           <div class="life"
           
@@ -26,7 +30,11 @@
       </div>
 
       <div class="score">
-        <h1>Monstro</h1>
+        <div class="main-player" >
+          <h1>Monstro</h1>
+          <img src="./img/moster.png" alt="">
+        </div>
+        
         <div class="life-bar">
           <div class="life" 
           :class="{danger : monsterLife < 20}"
@@ -41,9 +49,9 @@
     </div>
     <div class="panel actions">
       <template v-if="running">
-        <button class="btn attack">Atacar</button>
-        <button class="btn especial-attack">Ataque especial</button>
-        <button class="btn heal">curar</button>
+        <button @click="attack(false)" class="btn attack">Atacar</button>
+        <button @click="attack(true)" class="btn especial-attack">Ataque especial</button>
+        <button @click="healAndHurt" class="btn heal">curar</button>
         <button @click="running = false" 
         class="btn give-up">Desistir</button>
       </template>
@@ -51,7 +59,13 @@
       <button v-else @click="startGame" 
       class="btn new-game">Reiniciar Jogo</button>
     </div>
-    <div class="panel logs"></div>
+    <div v-if="logs.length" class="panel logs">
+      <ul>
+        <li v-for="log in logs" 
+        :class="log.cls"
+        class="log">{{log.text}}</li>
+      </ul>
+    </div>
   </div>
   
   <script src="app.js"></script>
